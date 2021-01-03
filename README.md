@@ -3,7 +3,10 @@ Career track "Data Scientist with Python" at DataCamp.
 
 ## I. Importing Data in Python
 
-In this part, you'll learn the many ways to import data into Python: from flat files such as .txt and .csv; from files native to other software such as Excel spreadsheets, Stata, SAS, and MATLAB files; and from relational databases such as SQLite and PostgreSQL.
+In this part, you'll find out the many ways to import data into Python: from flat files such as .txt and .csv; from files native to other software such as Excel spreadsheets, Stata, SAS, and MATLAB files; and from relational databases such as SQLite and PostgreSQL.
+
+1. [Read flat files by using NumPy](#121-using-numpy)
+2. [Read flat files by using Pandas](#122-using-pandas)
 
 ### 1. Flat files
 

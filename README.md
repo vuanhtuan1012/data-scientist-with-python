@@ -12,7 +12,7 @@ In this part, you'll find out the many ways to import data into Python: from fla
 5. [Read Stata files](#24-stata-files): use Pandas method `read_stata()`.
 6. [Read HDF5 files](#25-hdf5-files): use the package `h5py`.
 7. [Read MATLAB files](#26-matlab-files): use the module `scpy.io`.
-8. Relational databases: query data using a connection, or using Pandas method `read_sql_query()`
+8. Relational databases: query data [using a connection](#32-query-data-using-a-connection), or [using Pandas](#33-query-data-using-pandas-method) method `read_sql_query()`.
 
 ### 1. Flat files
 

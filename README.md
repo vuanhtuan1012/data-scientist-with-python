@@ -151,4 +151,137 @@ display(df.head())
 print(df.shape)
 ```
 
+### 2. Other files
+
+In the first section, we know how to import flat files, but there are many other file types we will potentially have to work with as a data scientist. In this section, we'll figure out how to import data into Python from a wide array of important file types. These include pickled files, Excel spreadsheets, SAS and Stata files, HDF5 files, a file type for storing large quantities of numerical data, and MATLAB files.
+
+#### 2.1 Pickle files
+
+A pickle file contain data serialized into a sequence of bytes.
+
+Some datatypes that cannot be saved easily to flat files, such as lists and dictionaries, that's why we have pickle file.
+
+Dictionaries can be serialized in JSON file which is easier for human reader.
+```Python
+import pickle
+# read data
+with open(pickle_file, "rb") as fp:
+    data = pickle.load(fp)
+print(data)
+
+# serialize data
+with open(pickle_file, "wb") as fp:
+    pickle.dump(data, fp, protocol=pickle.HIGHEST_PROTOCOL)
+```
+- The advantage of `HIGHEST_PROTOCOL` is that files get smaller. This make unpickling sometimes much faster.
+- The **maximum file size** of pickle is about 2GB.
+- The type of returned data is the type of the data serialized.
+
+#### 2.2 Excel files
+
+We use Pandas to read Excel files.
+```Python
+import pandas as pd
+```
+
+##### Using the method `read_excel()`
+```Python
+# read the first sheet
+df = pd.read_excel(battle_file, engine="openpyxl")
+df.head()
+```
+- The latest version of xlrd (2.0.1) only supports `.xls` files. The reason `xlsx` support was removed is because it had potential security vulnerabilities and no-one was maintaining it.
+- The engine `openpyxl` is used to read `.xlsx` file.
+- By default, it **reads the first sheet** of input Excel file.
+- The returned data is a dataframe.
+
+```Python
+# read all sheets
+data = pd.read_excel(battle_file, engine="openpyxl", sheet_name=None)
+```
+- `sheet_name=None` to read all sheets in the Excel file.
+- The returned data is a dictionary which has keys contain sheet names, values are dataframes.
+```Python
+sheet_names = data.keys()
+print(sheet_names)
+# explorer data
+display(data["2002"].head())
+display(data["2004"].head())
+```
+
+##### Using the class `ExcelFile()`
+```Python
+xls = pd.ExcelFile(battle_file, engine="openpyxl")
+# get sheet names
+sheet_names = xls.sheet_names
+print(sheet_names)
+# read a sheet by its index
+df = xls.parse(0)
+display(df.head())
+# read a sheet by its name
+df = xls.parse("2004")
+display(df.head())
+```
+- The class returns an ExcelFile object.
+- Its property `sheet_names` returns the names of sheets of input Excel file.
+- Its method `parse()` gets an index of sheet, or a sheet name and returns a dataframe.
+
+#### 2.3 SAS files
+
+We use the library `sas7bdat` to read SAS files.
+```Python
+from sas7bdat import SAS7BDAT
+```
+The method `to_data_frame()` returns the data of input SAS file in a dataframe.
+```Python
+with SAS7BDAT(sales_file) as fp:
+    df = fp.to_data_frame()
+display(df.head())
+print(df.shape)
+```
+
+#### 2.4 Stata files
+
+We use the Pandas method `read_stata()` to read Stata files.
+```Python
+df = pd.read_stata(disarea_file)
+display(df.head())
+print(df.shape)
+```
+
+#### 2.5 HDF5 files
+
+We use the library `h5py` to read HDF5 files.
+```Python
+import h5py
+data = h5py.File(ligo_file, "r")
+```
+
+The returned datatype is h5py File. It contains keys and array-likely data.
+```Python
+print(data.keys())
+print(data["strain"].keys())
+# access the data
+strain = data["strain"]["Strain"]
+nb_samples = int(1e4)
+gps_time = np.arange(0, 1, 1/nb_samples)
+plt.plot(gps_time, strain[:nb_samples])
+plt.xlabel("GPS Time (s)")
+plt.ylabel("Strain")
+plt.show()
+```
+
+#### 2.6 MATLAB files
+
+We use the library `scipy.io` to read MATLAB files.
+```Python
+import scipy.io
+mat = scipy.io.loadmat(albeck_file)
+```
+The return data is a dictionary. Its keys are variables in MATLAB environment. Its values contain the data of those variables.
+```Python
+print(type(mat))
+print(mat.keys())
+```
+
 The complete source code of this part is in the notebook [14_Introduction to Importing Data in Python](14_Introduction%20to%20Importing%20Data%20in%20Python.ipynb)

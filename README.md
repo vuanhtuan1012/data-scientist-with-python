@@ -1,5 +1,5 @@
 # Data Scientist with Python
-Notes on career track "Data Scientist with Python" at DataCamp.
+Notes on career track **Data Scientist with Python** at DataCamp.
 
 ## I. Importing Data in Python
 

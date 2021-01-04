@@ -11,7 +11,8 @@ In this part, you'll find out the many ways to import data into Python: from fla
 4. [Read SAS files](#23-sas-files): use the package `sas7bdat`.
 5. [Read Stata files](#24-stata-files): use Pandas method `read_stata()`.
 6. [Read HDF5 files](#25-hdf5-files): use the package `h5py`.
-7. [Read MATLAB files](#26-matlab-files): use the library `scpy.io`.
+7. [Read MATLAB files](#26-matlab-files): use the module `scpy.io`.
+8. Relational databases: query data using a connection, or using Pandas method `read_sql_query()`
 
 ### 1. Flat files
 
@@ -286,7 +287,7 @@ plt.show()
 
 MATLAB data is saved in files with extension `.mat`.
 
-We use the library `scipy.io` to read MATLAB files.
+We use the module `scipy.io` to read MATLAB files.
 ```Python
 import scipy.io
 mat = scipy.io.loadmat(albeck_file)
@@ -295,6 +296,48 @@ The return data is a dictionary. Its keys are variables in MATLAB environment. I
 ```Python
 print(type(mat))
 print(mat.keys())
+```
+
+### 3. Relational database
+
+In this section, we'll learn how to extract meaningful data from relational databases, an essential skill for any data scientist.
+
+We use the package `sqlalchemy` since it works with many Relational Database Management Systems (RDMS).
+
+```Python
+from sqlalchemy import create_engine
+```
+
+#### 3.1 Create a database engine
+
+The Engine is the starting point for any SQLAlchemy application.
+```Python
+db_url = "sqlite:///data/Chinook.sqlite"
+engine = create_engine(db_url)
+```
+```Python
+# get table names
+table_names = engine.table_names()
+print(table_names)
+```
+
+#### 3.2 Query data using a connection
+```Python
+query = "SELECT * FROM Album"
+with engine.connect() as conn:
+    rs = conn.execute(query)
+    df = pd.DataFrame(rs.fetchall())
+    df.columns = rs.keys()
+display(df.head())
+print(len(df))
+```
+
+#### 3.3 Query data using Pandas method
+```Python
+query = "SELECT * FROM Album"
+df = pd.read_sql_query(query, engine)
+display(df.head())
+print(len(df))
 ```
 
 The complete source code of this part is in the notebook [14_Introduction to Importing Data in Python](14_Introduction%20to%20Importing%20Data%20in%20Python.ipynb).

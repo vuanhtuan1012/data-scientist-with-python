@@ -5,13 +5,13 @@ Career track "Data Scientist with Python" at DataCamp.
 
 In this part, you'll find out the many ways to import data into Python: from flat files such as .txt and .csv; from files native to other software such as Excel spreadsheets, Stata, SAS, and MATLAB files; and from relational databases such as SQLite and PostgreSQL.
 
-1. Read flat files: [use NumPy](#121-using-numpy), [use Pandas](#122-using-pandas) method `read_csv()`
-2. [Read pickle files](#21-pickle-files): use `pickle` library.
-3. [Read Excel files](#22-excel-files): use Pandas method `read_excel()`, use Pandas class `ExcelFile`
-4. [Read SAS files](#23-sas-files): use `sas7bdat` library.
-5. [Read Stata files](#24-stata-files): use Pandas method `read_stata()`
-6. [Read HDF5 files](#25-hdf5-files): use `h5py` library
-7. [Read MATLAB files](#26-matlab-files): use `scpy.io` library
+1. Read flat files: [use NumPy](#121-using-numpy), or [use Pandas](#122-using-pandas) method `read_csv()`
+2. [Read pickle files](#21-pickle-files): use the package `pickle`.
+3. [Read Excel files](#22-excel-files): use Pandas method `read_excel()`, or Pandas class `ExcelFile`
+4. [Read SAS files](#23-sas-files): use the package `sas7bdat`.
+5. [Read Stata files](#24-stata-files): use Pandas method `read_stata()`.
+6. [Read HDF5 files](#25-hdf5-files): use the package `h5py`.
+7. [Read MATLAB files](#26-matlab-files): use the library `scpy.io`.
 
 ### 1. Flat files
 
@@ -164,9 +164,7 @@ In the first section, we know how to import flat files, but there are many other
 
 A pickle file contain data serialized into a sequence of bytes.
 
-Some datatypes that cannot be saved easily to flat files, such as lists and dictionaries, that's why we have pickle file.
-
-Dictionaries can be serialized in JSON file which is easier for human reader.
+Some datatypes that cannot be saved easily to flat files, such as lists and dictionaries, that's why we have pickle file (dictionaries can be serialized in JSON file which is easier for human reader).
 ```Python
 import pickle
 # read data
@@ -233,7 +231,9 @@ display(df.head())
 
 #### 2.3 SAS files
 
-We use the library `sas7bdat` to read SAS files.
+SAS file is a Statistical Analysis Software file. It has extension `.sas7bdat` (storing dataset) or `.sas7bcat` (storing SAS catalog).
+
+We use the package `sas7bdat` to read SAS files.
 ```Python
 from sas7bdat import SAS7BDAT
 ```
@@ -247,6 +247,8 @@ print(df.shape)
 
 #### 2.4 Stata files
 
+Stata file stores statistic and data. It has extension `.dta`.
+
 We use the Pandas method `read_stata()` to read Stata files.
 ```Python
 df = pd.read_stata(disarea_file)
@@ -258,7 +260,9 @@ The returned datatype is a dataframe.
 
 #### 2.5 HDF5 files
 
-We use the library `h5py` to read HDF5 files.
+HDF5 stands for Hierarchical Data Format version 5. It is standard for storing large quatities of numerical data. Datasets can be hundreds of gigabytes or terabytes. HDF5 can scale to exabytes.
+
+We use the package `h5py` to read HDF5 files.
 ```Python
 import h5py
 data = h5py.File(ligo_file, "r")
@@ -279,6 +283,8 @@ plt.show()
 ```
 
 #### 2.6 MATLAB files
+
+MATLAB data is saved in files with extension `.mat`.
 
 We use the library `scipy.io` to read MATLAB files.
 ```Python

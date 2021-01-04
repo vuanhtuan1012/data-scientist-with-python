@@ -297,4 +297,6 @@ print(type(mat))
 print(mat.keys())
 ```
 
-The complete source code of this part is in the notebook [14_Introduction to Importing Data in Python](14_Introduction%20to%20Importing%20Data%20in%20Python.ipynb)
+The complete source code of this part is in the notebook [14_Introduction to Importing Data in Python](14_Introduction%20to%20Importing%20Data%20in%20Python.ipynb).
+
+My statement of accomplishment is at [here](https://www.datacamp.com/statement-of-accomplishment/course/c7d72f1f865f9da933cfaf7431b56ede104c2f5e).

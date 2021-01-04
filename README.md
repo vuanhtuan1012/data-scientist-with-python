@@ -5,9 +5,9 @@ Career track "Data Scientist with Python" at DataCamp.
 
 In this part, you'll find out the many ways to import data into Python: from flat files such as .txt and .csv; from files native to other software such as Excel spreadsheets, Stata, SAS, and MATLAB files; and from relational databases such as SQLite and PostgreSQL.
 
-1. Read flat files: [use NumPy](#121-using-numpy), or [use Pandas](#122-using-pandas) method `read_csv()`
+1. Read flat files: [use NumPy](#121-using-numpy), or [use Pandas](#122-using-pandas) method `read_csv()`.
 2. [Read pickle files](#21-pickle-files): use the package `pickle`.
-3. [Read Excel files](#22-excel-files): use Pandas method `read_excel()`, or Pandas class `ExcelFile`
+3. [Read Excel files](#22-excel-files): use Pandas method `read_excel()`, or Pandas class `ExcelFile`.
 4. [Read SAS files](#23-sas-files): use the package `sas7bdat`.
 5. [Read Stata files](#24-stata-files): use Pandas method `read_stata()`.
 6. [Read HDF5 files](#25-hdf5-files): use the package `h5py`.

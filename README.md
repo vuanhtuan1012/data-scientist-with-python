@@ -315,8 +315,9 @@ The Engine is the starting point for any SQLAlchemy application.
 db_url = "sqlite:///data/Chinook.sqlite"
 engine = create_engine(db_url)
 ```
+
+Get tables in the database.
 ```Python
-# get table names
 table_names = engine.table_names()
 print(table_names)
 ```

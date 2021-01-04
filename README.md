@@ -37,8 +37,8 @@ with open(filepath, "r") as fp:
 #### 1.2 Read flat files
 
 ##### 1.2.1 Using NumPy
-- all columns have the same data type: use the method `loadtxt()`.
-- columns have different data types: use one of methods: `genfromtxt()`, `recfromcsv()`, or `recfromtxt()`.
+- all columns have the same data type: use the method [`loadtxt()`](#using-the-method-loadtxt).
+- columns have different data types: use one of methods: [`genfromtxt()`](#using-the-method-genfromtxt), [`recfromcsv()`](#using-the-method-recfromcsv), or `recfromtxt()`.
 
 ###### Using the method `loadtxt()`
 This method reads data in a file then returns a numpy array. It **requires all elements having the same data type**. By default, the data type of the output array is `float`. We can change it by giving value to the parameter `dtype` of the method.
@@ -97,7 +97,7 @@ Parameters:
 - `encoding`: None, use the system default encoding to decode the file.
 
 ###### Using the method `recfromcsv()`
-This method is similar to the method `genfromtxt()` except that:
+This method derives from the method `genfromtxt()` and it has:
 - the `delimiter` is set to comma `,` by default.
 - the `dtype` is set to `None` by default.
 - the `names` is set to `True` by default.

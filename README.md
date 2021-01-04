@@ -298,7 +298,7 @@ print(type(mat))
 print(mat.keys())
 ```
 
-### 3. Relational database
+### 3. Relational databases
 
 In this section, we'll learn how to extract meaningful data from relational databases, an essential skill for any data scientist.
 

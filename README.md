@@ -3,7 +3,7 @@ Notes on career track **Data Scientist with Python** at DataCamp.
 
 1. [Introduction to Python](https://www.datacamp.com/statement-of-accomplishment/course/65f2881759a6a93771fa52b03dc264a0ea29d5cb) :heavy_check_mark:
 2. [Intermediate Python](https://www.datacamp.com/statement-of-accomplishment/course/457c307e4e13ecf86a3f77ea429cc8d2bddadbd8) :heavy_check_mark:
-3. [Investigating Netflix Movies and Guest Stars in the Office](03_Investigating%20Netflix%20Movies%20and%20Guest%20Stars%20in%20The%20Office/notebook.ipynb) :heavy_check_mark:
+3. [Investigating Netflix Movies and Guest Stars in the Office](03_Investigating%20Netflix%20Movies%20and%20Guest%20Stars%20in%20The%20Office) :heavy_check_mark:
 4. Data Manipulation with Pandas
 5. The Android App Market on Google Play
 6. Joining Data with Pandas
